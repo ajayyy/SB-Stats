@@ -229,7 +229,7 @@ async def send(interaction: discord.Interaction, recipient: discord.User, amount
 	#time_fee = 0.001 * hours_since_epoch
 	fee = int(amount*0.02)
 
-	if cooldown_duration:
+	if cooldown_duration and recipient != 1343666037551267904:
 		log(f"{interaction.user} tried to send {amount} to {recipient}, but is on cooldown for {cooldown_duration}s.")
 		await interaction.response.send_message(f"You can't send yet as you are on cooldown. You must wait another {cooldown_duration} seconds.", ephemeral=True)
 		return
